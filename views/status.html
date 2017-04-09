@@ -1,0 +1,60 @@
+<div class="overall-box">
+  <h2>Status Updates</h2>
+</div>
+<div class="data-boxes">
+  <div ng-show="postData.status.highestLikesDate" class="data-box">
+    <h4>Most Popular</h4>
+    <div class="box-content">
+      <video ng-show="postData.status.highestLikesVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.status.highestLikesVideo}} controls></video>
+      <div class="box-image">
+        <img ng-hide="postData.status.highestLikesVideo" ng-src={{postData.status.highestLikesPic}}>
+        <cite ng-show="postData.status.highestLikesMessage">"{{postData.status.highestLikesMessage}}"</cite>
+      </div>
+    </div>
+    <div class="box-stats">
+      <p>Reactions: {{postData.status.highestLikes}}</p>
+      <p ng-show="postData.status.highestLikesDate">Date: {{postData.status.highestLikesDate}}</p>
+    </div>
+  </div>
+  <div ng-show="postData.status.biggestFan[0]" class="data-box">
+    <h4>Biggest Status Fan</h4>
+    <div class="box-content">
+      <img ng-show="postData.status.biggestFan[0]" ng-src={{postData.status.biggestFan[0]}}>
+      <img ng-show="postData.status.biggestFan[2]" ng-src={{postData.status.biggestFan[2]}}>
+      <img ng-show="postData.status.biggestFan[4]" ng-src={{postData.status.biggestFan[4]}}>
+    </div>
+    <div class="box-stats">
+      <p ng-show="postData.status.biggestFan[1]">{{postData.status.biggestFan[1]}}</p>
+      <p ng-show="postData.status.biggestFan[3]">{{postData.status.biggestFan[3]}}</p>
+      <p ng-show="postData.status.biggestFan[5]">{{postData.status.biggestFan[5]}}</p>
+    </div>
+  </div>
+  <div ng-show="postData.status.lowestLikesDate" class="data-box">
+    <h4>Least Popular</h4>
+    <div class="box-content">
+      <video ng-show="postData.status.lowestLikesVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.status.lowestLikesVideo}} controls></video>
+      <div class="box-image">
+        <img ng-hide="postData.status.lowestLikesVideo" ng-show="postData.status.lowestLikesPic" ng-src={{postData.status.lowestLikesPic}}>
+        <cite ng-show="postData.status.lowestLikesMessage">"{{postData.status.lowestLikesMessage}}"</cite>
+      </div>
+    </div>
+    <div class="box-stats">
+      <p>Reactions: {{postData.status.lowestLikes}}</p>
+      <p ng-show="postData.status.lowestLikesDate">Date: {{postData.status.lowestLikesDate}}</p>
+    </div>
+  </div>
+  <div ng-show="postData.status.highestCommentsDate" class="data-box">
+    <h4>Most Interactive</h4>
+    <div class="box-content">
+      <video ng-show="postData.status.highestCommentsVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.status.highestCommentsVideo}} controls></video>
+      <div class="box-image">
+        <img ng-hide="postData.status.highestCommentsVideo" ng-show="postData.status.highestCommentsPic" ng-src={{postData.status.highestCommentsPic}}>
+        <cite ng-show="postData.status.highestCommentsMessage">"{{postData.status.highestCommentsMessage}}"</cite>
+      </div>
+    </div>
+    <div class="box-stats">
+      <p>Comments: {{postData.status.highestComments}}</p>
+      <p ng-show="postData.status.highestCommentsDate">Date: {{postData.status.highestCommentsDate}}</p>
+    </div>
+  </div>
+</div>
