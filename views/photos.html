@@ -18,15 +18,19 @@
   </div>
   <div ng-show="postData.photos.biggestFan[0]" class="data-box">
     <h4>Biggest Photo Fans</h4>
-    <div class="box-content">
-      <img ng-show="postData.photos.biggestFan[3]" ng-src={{postData.photos.biggestFan[3]}}>
-      <img ng-show="postData.photos.biggestFan[4]" ng-src={{postData.photos.biggestFan[4]}}>
-      <img ng-show="postData.photos.biggestFan[5]" ng-src={{postData.photos.biggestFan[5]}}>
-    </div>
-    <div class="box-stats">
-      <p ng-show="postData.photos.biggestFan[0]">{{postData.photos.biggestFan[0]}}</p>
-      <p ng-show="postData.photos.biggestFan[1]">{{postData.photos.biggestFan[1]}}</p>
-      <p ng-show="postData.photos.biggestFan[2]">{{postData.photos.biggestFan[2]}}</p>
+    <div class="fan">
+      <div class="box-fan">
+        <img ng-show="postData.photos.biggestFan[3]" ng-src={{postData.photos.biggestFan[3]}}>
+        <p ng-show="postData.photos.biggestFan[0]">{{postData.photos.biggestFan[0]}}</p>
+      </div>
+      <div class="box-fan">
+        <img ng-show="postData.photos.biggestFan[4]" ng-src={{postData.photos.biggestFan[4]}}>
+        <p ng-show="postData.photos.biggestFan[1]">{{postData.photos.biggestFan[1]}}</p>
+      </div>
+      <div class="box-fan">
+        <img ng-show="postData.photos.biggestFan[5]" ng-src={{postData.photos.biggestFan[5]}}>
+        <p ng-show="postData.photos.biggestFan[2]">{{postData.photos.biggestFan[2]}}</p>
+      </div>
     </div>
   </div>
   <div ng-show="postData.photos.lowestLikesVideo || postData.photos.lowestLikesPic || postData.photos.lowestLikesMessage" class="data-box">
