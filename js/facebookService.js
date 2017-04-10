@@ -66,7 +66,6 @@ angular.module('facebookApp').service('facebookService', function ($q, $sce) {
       var links = response.filter(v => v.type === 'link');
       var photos = response.filter(v => v.type === 'photo');
       var videos = response.filter(v => v.type === 'video');
-      console.log(videos);
 
 
       function calculate(response) {
@@ -90,21 +89,26 @@ angular.module('facebookApp').service('facebookService', function ($q, $sce) {
         if(!highestLikesMessage) {
           highestLikesMessage = response[likes.indexOf(highestLikes)].story
         }
-        var highestLikesDate = response[likes.indexOf(highestLikes)].created_time.substring(0,10)
+        var highestLikesDate = response[likes.indexOf(highestLikes)].created_time
+        if (highestLikesDate) {
+          highestLikesDate = highestLikesDate.substring(0,10)
+        }
         var highestLikesPic = response[likes.indexOf(highestLikes)].picture
         var highestLikesVideo = $sce.trustAsResourceUrl(response[likes.indexOf(highestLikes)].source)
         var lowestLikesMessage = response[likes.indexOf(lowestLikes)].message
         if(!highestLikesMessage) {
           highestLikesMessage = response[likes.indexOf(lowestLikes)].story
         }
-        var lowestLikesDate = response[likes.indexOf(lowestLikes)].created_time.substring(0,10)
+        var lowestLikesDate = response[likes.indexOf(lowestLikes)].created_time
+        if (lowestLikesDate) {
+          lowestLikesDate = lowestLikesDate.substring(0,10)
+        }
         var lowestLikesPic = response[likes.indexOf(lowestLikes)].picture
         var lowestLikesVideo = $sce.trustAsResourceUrl(response[likes.indexOf(lowestLikes)].source)
 
 
         var comments = response.map( (v) => (v.comments)? v.comments : 0).map(v => v.data ? v.data.length : 0)
         var highestComments = comments.reduce( (h,v) => {
-          console.log(h, v);
           return v > h ? h = v : h
         })
         var highestCommentsMessage = response[comments.indexOf(highestComments)].message
@@ -112,7 +116,10 @@ angular.module('facebookApp').service('facebookService', function ($q, $sce) {
           highestLikesMessage = response[comments.indexOf(highestComments)].story
         }
 
-        var highestCommentsDate = response[comments.indexOf(highestComments)].created_time.substring(0,10)
+        var highestCommentsDate = response[comments.indexOf(highestComments)].created_time
+        if (highestCommentsDate) {
+          highestCommentsDate = highestCommentsDate.substring(0,10)
+        }
         var highestCommentsPic = response[comments.indexOf(highestComments)].picture
         var highestCommentsVideo = $sce.trustAsResourceUrl(response[comments.indexOf(highestComments)].source)
 

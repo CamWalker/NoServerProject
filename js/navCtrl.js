@@ -19,7 +19,7 @@ angular.module('facebookApp').controller('navCtrl', function ($scope, $rootScope
         });
 
       }
-    }, {scope: 'public_profile, user_posts, user_photos, user_videos, user_location, user_likes, user_friends, user_actions.video'})
+    }, {scope: 'public_profile, user_posts, user_location'})
   }
 
 
