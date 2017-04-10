@@ -61,7 +61,7 @@ window.fbAsyncInit = function() {
     if (response.status === 'connected') {
       // document.getElementById('status').innerHTML = "connected"
     } else if (response.status == 'not authorized') {
-      // document.getElementById('status').innerHTML = "not authorized"
+      // var sadf = document.getElementById('status').innerHTML = "not authorized"
     } else {
       // document.getElementById('status').innerHTML = "not logged in"
     }

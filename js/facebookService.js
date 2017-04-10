@@ -5,29 +5,60 @@ angular.module('facebookApp').service('facebookService', function ($q, $sce) {
   // this.getPhotos = getPhotos;
   // this.getVideos = getVideos;
 
+  // function mode(array) {
+  //   var ties = [];
+  //   if(array.length == 0)
+  //       return [];
+  //   var modeMap = {};
+  //   var maxEl = array[0], maxCount = 1;
+  //   for(var i = 0; i < array.length; i++) {
+  //     var el = array[i];
+  //     if(modeMap[el] == null) {
+  //         modeMap[el] = 1;
+  //     } else {
+  //         modeMap[el]++;
+  //     }
+  //     if(modeMap[el] > maxCount) {
+  //         maxEl = el;
+  //         maxCount = modeMap[el];
+  //         ties = [el]
+  //     } else if (modeMap[el] === maxCount) {
+  //       ties.push(el)
+  //     }
+  //   }
+  //   return ties;
+  // }
+
   function mode(array) {
-    var ties = [];
     if(array.length == 0)
         return [];
     var modeMap = {};
-    var maxEl = array[0], maxCount = 1;
-    for(var i = 0; i < array.length; i++) {
-      var el = array[i];
-      if(modeMap[el] == null) {
-          modeMap[el] = 1;
-      } else {
-          modeMap[el]++;
+    var firstEl = array[0], secondEl = array[0], thirdEl = array[0], firstCount = 1, secondCount = 1, thirdCount = 1;
+    array = array.sort()
+    uniqueArray = array.filter((v, i, arr) => i === arr.indexOf(v));
+    for(var i = 0; i < uniqueArray.length; i++) {
+      var quant = array.filter(v => v === uniqueArray[i]).length
+      if (quant >= firstCount) {
+        thirdCount = secondCount
+        thirdEl = secondEl
+        secondEl = firstEl
+        secondCount = firstCount
+        firstCount = quant
+        firstEl = uniqueArray[i]
+      } else if (quant >= secondCount) {
+        thirdCount = secondCount
+        thirdEl = secondEl
+        secondEl = uniqueArray[i]
+        secondCount = quant
+      } else if (quant >= thirdCount) {
+        thirdEl = uniqueArray[i]
+        thirdCount = quant
       }
-      if(modeMap[el] > maxCount) {
-          maxEl = el;
-          maxCount = modeMap[el];
-          ties = [el]
-      } else if (modeMap[el] === maxCount) {
-        ties.push(el)
-      }
+
     }
-    return ties;
+    return [firstEl, secondEl, thirdEl];
   }
+
     function flatten(input) {
       var output = [];
       function callAgain(input) {
@@ -82,8 +113,11 @@ angular.module('facebookApp').service('facebookService', function ($q, $sce) {
 
 
         var likesPeople = flatten(response.map( (v) => v.reactions).map(v => v ? v.data : ""))
-        var biggestFan = mode(likesPeople);
-        biggestFan = biggestFan.filter((v, i) => i % 3 !== 2)
+        var biggestFan = likesPeople.filter((v, i, arr) => v.indexOf(" ") > -1);
+        biggestFan = mode(biggestFan)
+        biggestFan.push(likesPeople[likesPeople.indexOf(biggestFan[0]) - 1])
+        biggestFan.push(likesPeople[likesPeople.indexOf(biggestFan[1]) - 1])
+        biggestFan.push(likesPeople[likesPeople.indexOf(biggestFan[2]) - 1])
 
         var highestLikesMessage = response[likes.indexOf(highestLikes)].message
         if(!highestLikesMessage) {

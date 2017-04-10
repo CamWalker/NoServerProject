@@ -2,7 +2,7 @@
   <h2>Shared Links</h2>
 </div>
 <div class="data-boxes">
-  <div ng-show="postData.links.highestLikesDate" class="data-box">
+  <div ng-show="postData.links.highestLikesMessage || postData.links.highestLikesPic || postData.links.highestLikesVideo" class="data-box">
     <h4>Most Popular</h4>
     <div class="box-content">
       <video ng-show="postData.links.highestLikesVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.links.highestLikesVideo}} controls></video>
@@ -17,19 +17,19 @@
     </div>
   </div>
   <div ng-show="postData.links.biggestFan[0]" class="data-box">
-    <h4>Biggest Link Fan</h4>
+    <h4>Biggest Link Fans</h4>
     <div class="box-content">
-      <img ng-show="postData.links.biggestFan[0]" ng-src={{postData.links.biggestFan[0]}}>
-      <img ng-show="postData.links.biggestFan[2]" ng-src={{postData.links.biggestFan[2]}}>
+      <img ng-show="postData.links.biggestFan[3]" ng-src={{postData.links.biggestFan[3]}}>
       <img ng-show="postData.links.biggestFan[4]" ng-src={{postData.links.biggestFan[4]}}>
+      <img ng-show="postData.links.biggestFan[5]" ng-src={{postData.links.biggestFan[5]}}>
     </div>
     <div class="box-stats">
+      <p ng-show="postData.links.biggestFan[0]">{{postData.links.biggestFan[0]}}</p>
       <p ng-show="postData.links.biggestFan[1]">{{postData.links.biggestFan[1]}}</p>
-      <p ng-show="postData.links.biggestFan[3]">{{postData.links.biggestFan[3]}}</p>
-      <p ng-show="postData.links.biggestFan[5]">{{postData.links.biggestFan[5]}}</p>
+      <p ng-show="postData.links.biggestFan[2]">{{postData.links.biggestFan[2]}}</p>
     </div>
   </div>
-  <div ng-show="postData.links.lowestLikesDate" class="data-box">
+  <div ng-show="postData.links.lowestLikesVideo || postData.links.lowestLikesPic || postData.links.lowestLikesMessage" class="data-box">
     <h4>Least Popular</h4>
     <div class="box-content">
       <video ng-show="postData.links.lowestLikesVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.links.lowestLikesVideo}} controls></video>
@@ -43,7 +43,7 @@
       <p ng-show="postData.links.lowestLikesDate">Date: {{postData.links.lowestLikesDate}}</p>
     </div>
   </div>
-  <div ng-show="postData.links.highestCommentsDate" class="data-box">
+  <div ng-show="postData.links.highestCommentsVideo || postData.links.highestCommentsMessage || postData.links.highestCommentsPic" class="data-box">
     <h4>Most Interactive</h4>
     <div class="box-content">
       <video ng-show="postData.links.highestCommentsVideo" style="max-width: 320px; max-height: 240px" ng-src={{postData.links.highestCommentsVideo}} controls></video>

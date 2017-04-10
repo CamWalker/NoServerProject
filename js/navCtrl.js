@@ -14,7 +14,6 @@ angular.module('facebookApp').controller('navCtrl', function ($scope, $rootScope
 
 
         facebookService.getPosts().then(function (response) {
-          console.log(response);
           $rootScope.postData = response
         });
 

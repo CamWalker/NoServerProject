@@ -201,7 +201,7 @@ ui-view {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
     }
      .data-box {
        background: rgba(216, 229, 240, 0.85);
@@ -210,11 +210,115 @@ ui-view {
        flex-grow: 1;
        margin: 5px;
        min-width: 25%;
-       max-width: 90%;
+       max-width: 50%;
        display: flex;
        flex-direction: column;
-       justify-content: space-between;
+       justify-content: space-around;
      }
+
+                .overall-box {
+                  -webkit-animation-duration: 1.75s;
+                  animation-duration: 1.75s;
+                  -webkit-animation-name: bounceInDown;
+                  animation-name: bounceInDown;
+                }
+                .data-box:nth-child(1){
+                  -webkit-animation-duration: 1.5s;
+                  animation-duration: 1.5s;
+                  -webkit-animation-name: bounceInDown;
+                  animation-name: bounceInDown;
+                }
+                .data-box:nth-child(2){
+                  /*-webkit-animation-delay: 0.25s;
+                  animation-delay: 0.23s;*/
+                  -webkit-animation-duration: 1.25s;
+                  animation-duration: 1.25s;
+                  -webkit-animation-name: bounceInDown;
+                  animation-name: bounceInDown;
+                }
+                .data-box:nth-child(3){
+                  -webkit-animation-duration: 1s;
+                  animation-duration: 1s;
+                  -webkit-animation-name: bounceInDown;
+                  animation-name: bounceInDown;
+                }
+                .data-box:nth-child(4){
+                  -webkit-animation-duration: 0.75s;
+                  animation-duration: 0.75s;
+                  -webkit-animation-name: bounceInDown;
+                  animation-name: bounceInDown;
+                }
+
+                  @-webkit-keyframes bounceInDown {
+                    from, 60%, 75%, 90%, to {
+                      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                    }
+
+                    0% {
+                      opacity: 0;
+                      -webkit-transform: translate3d(0, -3000px, 0);
+                      transform: translate3d(0, -3000px, 0);
+                    }
+
+                    60% {
+                      opacity: 1;
+                      -webkit-transform: translate3d(0, 25px, 0);
+                      transform: translate3d(0, 25px, 0);
+                    }
+
+                    75% {
+                      -webkit-transform: translate3d(0, -10px, 0);
+                      transform: translate3d(0, -10px, 0);
+                    }
+
+                    90% {
+                      -webkit-transform: translate3d(0, 5px, 0);
+                      transform: translate3d(0, 5px, 0);
+                    }
+
+                    to {
+                      -webkit-transform: none;
+                      transform: none;
+                    }
+                  }
+
+                  @keyframes bounceInDown {
+                    from, 60%, 75%, 90%, to {
+                      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                    }
+
+                    0% {
+                      opacity: 0;
+                      -webkit-transform: translate3d(0, -3000px, 0);
+                      transform: translate3d(0, -3000px, 0);
+                    }
+
+                    60% {
+                      opacity: 1;
+                      -webkit-transform: translate3d(0, 25px, 0);
+                      transform: translate3d(0, 25px, 0);
+                    }
+
+                    75% {
+                      -webkit-transform: translate3d(0, -10px, 0);
+                      transform: translate3d(0, -10px, 0);
+                    }
+
+                    90% {
+                      -webkit-transform: translate3d(0, 5px, 0);
+                      transform: translate3d(0, 5px, 0);
+                    }
+
+                    to {
+                      -webkit-transform: none;
+                      transform: none;
+                    }
+                  }
+
+
+
      .data-box h4 {
        padding-bottom: 20px;
        color: #3C83A5;
@@ -263,6 +367,7 @@ ui-view {
      }
      .video {
        flex-direction: column;
+
      }
 
 
