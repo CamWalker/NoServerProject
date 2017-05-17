@@ -10,7 +10,28 @@
   </head>
   <body>
 
-    <header ng-controller="navCtrl">
+    <header class="header2" ng-controller="navCtrl">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <div class="dropbtn-bar"></div>
+          <div class="dropbtn-bar"></div>
+          <div class="dropbtn-bar"></div>
+        </button>
+        <nav class="dropdown-content">
+          <ul class="nav-bar">
+            <a ui-sref="overall"><li class="nav-item2" hover-directive>Overall</li></a>
+            <a ui-sref="status"><li class="nav-item2" hover-directive>Status Updates</li></a>
+            <a ui-sref="links"><li class="nav-item2" hover-directive>Shared Links</li></a>
+            <a ui-sref="photos"><li class="nav-item2" hover-directive>Photos</li></a>
+            <a ui-sref="videos"><li class="nav-item2" hover-directive>Videos</li></a>
+            <button class="logout2" ui-sref="home" ng-click="FBlogOut();">LOG OUT</button>
+          </ul>
+        </nav>
+      </div>
+      <button class="login2" ng-click="FBlogin();">LOGIN</button>
+    </header>
+
+    <header class="header1" ng-controller="navCtrl">
       <div class="header-wrapper">
         <div class="profile-login">
           <div class="profile-image-box">
@@ -47,7 +68,7 @@
 
     <div class="right-of-nav">
       <div class="title-bar">
-        <span class="facebook">facebook</span><span class="title">Activity Analysis</span>
+        <span class="facebook">Facebook</span><span class="title">Activity Analysis</span>
       </div>
 
     <ui-view></ui-view>
