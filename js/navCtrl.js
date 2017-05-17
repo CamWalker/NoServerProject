@@ -20,6 +20,15 @@ angular.module('facebookApp').controller('navCtrl', function ($scope, $rootScope
       }
     }, {scope: 'public_profile, user_posts, user_location'})
   }
+  $scope.dropDownClass = false;
+  $scope.dropDown = function () {
+    console.log('click');
+    $scope.dropDownClass = !$scope.dropDownClass;
+  }
+  $scope.closeDropDown = function () {
+    console.log('click2');
+    $scope.dropDownClass = false;
+  }
 
 
 

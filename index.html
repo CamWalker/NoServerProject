@@ -8,16 +8,16 @@
 
     <title>Facebook Analysis</title>
   </head>
-  <body>
+  <body ng-controller="navCtrl">
 
-    <header class="header2" ng-controller="navCtrl">
-      <div class="dropdown">
+    <header class="header2">
+      <div class="dropdown"  ng-click="dropDown()">
         <button class="dropbtn">
           <div class="dropbtn-bar"></div>
           <div class="dropbtn-bar"></div>
           <div class="dropbtn-bar"></div>
         </button>
-        <nav class="dropdown-content">
+        <nav class="dropdown-content" ng-show="dropDownClass">
           <ul class="nav-bar">
             <a ui-sref="overall"><li class="nav-item2" hover-directive>Overall</li></a>
             <a ui-sref="status"><li class="nav-item2" hover-directive>Status Updates</li></a>
@@ -31,7 +31,7 @@
       <button class="login2" ng-click="FBlogin();">LOG IN</button>
     </header>
 
-    <header class="header1" ng-controller="navCtrl">
+    <header class="header1" >
       <div class="header-wrapper">
         <div class="profile-login">
           <div class="profile-image-box">
@@ -66,12 +66,12 @@
     </header>
 
 
-    <div class="right-of-nav">
+    <div class="right-of-nav" ng-click="closeDropDown();">
       <div class="title-bar">
-        <span class="facebook">Facebook</span><span class="title">Activity Analysis</span>
+        <span class="facebook">{{firstName}}Facebook</span><span class="title">Activity Analysis</span>
       </div>
 
-    <ui-view></ui-view>
+    <ui-view ></ui-view>
 
 
 
