@@ -24,11 +24,11 @@
             <a ui-sref="links"><li class="nav-item2" hover-directive>Shared Links</li></a>
             <a ui-sref="photos"><li class="nav-item2" hover-directive>Photos</li></a>
             <a ui-sref="videos"><li class="nav-item2" hover-directive>Videos</li></a>
-            <button class="logout2" ui-sref="home" ng-click="FBlogOut();">LOG OUT</button>
+            <button class="logout2" ng-click="FBlogOut();">LOG OUT</button>
           </ul>
         </nav>
       </div>
-      <button class="login2" ng-click="FBlogin();">LOGIN</button>
+      <button class="login2" ng-click="FBlogin();">LOG IN</button>
     </header>
 
     <header class="header1" ng-controller="navCtrl">
@@ -38,7 +38,7 @@
             <img ng-src={{pic}} class="profile-image">
           </div>
           <div class="">
-            <button class="login" ng-click="FBlogin();">LOGIN</button>
+            <button class="login" ng-click="FBlogin();">LOG IN</button>
           </div>
         </div>
         <div class="below-pic">
@@ -59,7 +59,7 @@
             </ul>
           </nav>
           <div class="">
-            <button class="logout" ui-sref="home" ng-click="FBlogOut();">LOG OUT</button>
+            <button class="logout" ng-click="FBlogOut();">LOG OUT</button>
           </div>
         </div>
       </div>

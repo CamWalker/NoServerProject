@@ -3,12 +3,8 @@ angular.module('facebookApp', ['ui.router', 'ngSanitize'])
     $urlRouterProvider.when('','/');
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: '././views/home.html',
-      })
       .state('overall', {
-        url: '/overall',
+        url: '/',
         templateUrl: '././views/overall.html',
         // controller: 'overallCtrl'
       })
